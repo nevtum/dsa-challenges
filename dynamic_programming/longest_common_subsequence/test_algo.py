@@ -1,16 +1,23 @@
 import pytest
-from .algo import longest_common_subsequence
+from .algo import lcr, non_cached_lcr
 
 @pytest.mark.parametrize("text1,text2,expected", [
     ("abcde", "ace", 3),
     ("abc", "abc", 3),
     ("abc", "def", 0),
     ("oxcpqrsvwf", "shmtulqrypy", 2),
+    ("fmtclsfaxchgjavqrifqbkzspazw", "nczivetoxqjclwbwtibqvelwxsdaz", 8)
+])
+def test_longest_common_subsequence(text1, text2, expected):
+    assert non_cached_lcr(text1, text2) == expected
+    assert lcr(text1, text2) == expected
+
+@pytest.mark.parametrize("text1,text2,expected", [
     (
         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         113,
-    )
+    ),
 ])
-def test_brute_force(text1, text2, expected):
-    assert longest_common_subsequence(text1, text2) == expected
+def test_long_running(text1, text2, expected):
+    assert lcr(text1, text2) == expected
