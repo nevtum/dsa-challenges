@@ -1,4 +1,4 @@
-from .v2 import add
+from .v2 import evaluate
 import pytest
 
 @pytest.mark.parametrize("expression, expected", [
@@ -17,4 +17,4 @@ import pytest
     ("3*2^3", 24),
 ])
 def test_add_parameterized(expression, expected):
-    assert add(expression) == expected
+    assert evaluate(expression) == expected

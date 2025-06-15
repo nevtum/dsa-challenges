@@ -10,7 +10,7 @@ def calc(acc: int, val: int, operand) -> int:
     raise NotImplementedError("operand not supported")
 
 
-def add(expression: str)-> int:
+def evaluate(expression: str)-> int:
     # remove all spaces
     expression = expression.replace(' ', '')
 
