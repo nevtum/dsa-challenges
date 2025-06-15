@@ -1,4 +1,4 @@
-def non_cached_lcr(text1: str, text2: str) -> int:
+def non_cached_lcs(text1: str, text2: str) -> int:
     def dfs(n: int, m: int, length) -> int:
         res = length
 
@@ -13,7 +13,7 @@ def non_cached_lcr(text1: str, text2: str) -> int:
     return dfs(0, 0, 0)
 
 
-def lcr(text1: str, text2: str) -> int:
+def lcs(text1: str, text2: str) -> int:
     cache = {}
     n, m = len(text1), len(text2)
 
