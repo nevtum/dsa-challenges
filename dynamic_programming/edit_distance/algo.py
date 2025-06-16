@@ -1,10 +1,6 @@
+
 def min_distance(word1: str, word2: str) -> int:
     n, m = len(word1), len(word2)
-
-    if not word1:
-        return m
-    if not word2:
-        return n
 
     def dp(i: int, j: int) -> int:
         if i >= n:
