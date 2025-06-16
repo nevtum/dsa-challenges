@@ -1,16 +1,14 @@
 from functools import wraps
-from typing import List, Callable
 from pprint import pp
 
 
-class Tracker:
+class CallTracker:
     def __init__(self):
-        self.call_stack: List[dict] = []
+        self.call_stack = []
 
-    def track(self, func: Callable) -> Callable:
+    def track(self, func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-
             try:
                 self.call_stack.append({
                     "fn": func.__name__,

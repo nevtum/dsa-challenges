@@ -1,13 +1,13 @@
 from functools import cache
 from typing import List
-# from .debug import Tracker
+from utils.debug import CallTracker
 
 def minimum_total(triangle: List[List[int]]) -> int:
-    # debug = Tracker()
+    debug = CallTracker()
     height = len(triangle)
 
     @cache
-    # @debug.track
+    @debug.track
     def dp(depth: int, i: int) -> float:
         if not (0 <= depth < height) or not (0 <= i < len(triangle[depth])):
             return float("inf")
