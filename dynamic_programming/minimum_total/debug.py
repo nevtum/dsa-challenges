@@ -16,6 +16,7 @@ class Tracker:
                     "fn": func.__name__,
                     "args": args,
                     # "kwargs": kwargs,
+                    "depth": len(self.call_stack),
                 })
                 result = func(*args, **kwargs)
                 pp(dict(stack=self.call_stack, result=result))
