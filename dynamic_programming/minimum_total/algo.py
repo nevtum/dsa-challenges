@@ -8,7 +8,7 @@ def minimum_total(triangle: List[List[int]]) -> int:
 
     @cache
     # @debug.track
-    def dp(depth: int, i: int) -> int:
+    def dp(depth: int, i: int) -> float:
         if not (0 <= depth < height) or not (0 <= i < len(triangle[depth])):
             return float("inf")
 
@@ -20,4 +20,4 @@ def minimum_total(triangle: List[List[int]]) -> int:
         res = triangle[depth][i] + min(dp(depth+1, i), dp(depth+1, i+1))
         return res
 
-    return dp(0, 0)
+    return int(dp(0, 0))
