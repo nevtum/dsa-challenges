@@ -1,7 +1,9 @@
+from functools import cache
 
 def min_distance(word1: str, word2: str) -> int:
     n, m = len(word1), len(word2)
 
+    @cache
     def dp(i: int, j: int) -> int:
         if i >= n:
             return m - j
