@@ -1,4 +1,4 @@
-from .v1 import letter_combinations
+from .algo import letter_combinations
 import pytest
 
 @pytest.mark.parametrize("digits,expected", [
@@ -8,3 +8,7 @@ import pytest
 ])
 def test_letter_combs(digits, expected):
     assert letter_combinations(digits) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

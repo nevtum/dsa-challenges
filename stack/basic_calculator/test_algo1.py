@@ -1,4 +1,4 @@
-from .v1 import add
+from .algo1 import add
 import pytest
 
 @pytest.mark.parametrize("expression, expected", [
@@ -10,3 +10,7 @@ import pytest
 ])
 def test_add_parameterized(expression, expected):
     assert add(expression) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

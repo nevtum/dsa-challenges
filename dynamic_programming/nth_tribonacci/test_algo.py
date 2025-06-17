@@ -11,3 +11,7 @@ import pytest
 ])
 def test_tribonacci(n, expected):
     assert tribonacci(n) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

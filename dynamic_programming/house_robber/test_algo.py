@@ -11,3 +11,7 @@ import pytest
 ])
 def test_rob(nums, expected):
    assert rob(nums) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

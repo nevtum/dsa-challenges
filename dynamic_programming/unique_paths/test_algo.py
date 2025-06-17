@@ -7,3 +7,7 @@ from .algo import unique_paths
 ])
 def test_unique_paths(n, m, expected):
     assert unique_paths(n, m) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

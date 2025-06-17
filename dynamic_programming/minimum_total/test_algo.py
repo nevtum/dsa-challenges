@@ -10,3 +10,7 @@ from .algo import minimum_total
 ])
 def test_minimum_total(triangle, expected):
     assert minimum_total(triangle) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

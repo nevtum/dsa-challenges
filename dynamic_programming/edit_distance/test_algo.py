@@ -10,3 +10,7 @@ from .algo import min_distance
 ])
 def test_min_distance(word1, word2, expected):
     assert min_distance(word1, word2) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

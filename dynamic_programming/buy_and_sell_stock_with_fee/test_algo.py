@@ -8,3 +8,7 @@ from .algo import max_profit
 ])
 def test_max_profit_buy_and_sell_stock(prices, fee, expected):
     assert max_profit(prices, fee) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

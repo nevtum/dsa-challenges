@@ -8,3 +8,7 @@ from .algo import min_path_sum
 ])
 def test_min_path_sum(grid, expected):
     assert min_path_sum(grid) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

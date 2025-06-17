@@ -21,3 +21,7 @@ def test_longest_common_subsequence(text1, text2, expected):
 ])
 def test_long_running(text1, text2, expected):
     assert lcs(text1, text2) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

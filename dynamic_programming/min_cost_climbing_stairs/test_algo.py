@@ -8,3 +8,7 @@ from .algo import min_cost_climbing_stairs
 ])
 def test_min_cost_climbing_stairs(cost, expected):
     assert min_cost_climbing_stairs(cost) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

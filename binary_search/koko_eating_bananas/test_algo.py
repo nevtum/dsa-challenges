@@ -47,3 +47,7 @@ def test_brute_force_algorithm(piles, hours, expected_rate):
 ])
 def test_binary_search_algorithm(piles, hours, expected_rate):
     assert min_eating_speed_binary_search(piles, hours) == expected_rate
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

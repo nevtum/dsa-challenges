@@ -1,4 +1,4 @@
-from .v2 import evaluate
+from .algo2 import evaluate
 import pytest
 
 @pytest.mark.parametrize("expression, expected", [
@@ -18,3 +18,7 @@ import pytest
 ])
 def test_add_parameterized(expression, expected):
     assert evaluate(expression) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])

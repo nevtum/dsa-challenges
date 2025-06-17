@@ -8,3 +8,7 @@ import pytest
 ])
 def test_combination_sum_iii(k, n, expected):
     assert combination_sum_iii(k, n) == expected
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-sv"])
