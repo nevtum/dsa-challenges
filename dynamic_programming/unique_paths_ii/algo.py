@@ -1,5 +1,6 @@
 from typing import List
 
+
 def unique_paths_with_obstacles(grid: List[List[int]]) -> int:
     n, m = len(grid), len(grid[0])
     paths = [[0] * m for _ in range(n)]

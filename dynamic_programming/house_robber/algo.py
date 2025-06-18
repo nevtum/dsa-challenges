@@ -1,5 +1,6 @@
 from typing import List
 
+
 def rob(nums: List[int]) -> int:
     n = len(nums)
 
@@ -11,11 +12,11 @@ def rob(nums: List[int]) -> int:
     best_steal = [
         nums[0],
         max(nums[:2]),
-        nums[2]+nums[0],
+        nums[2] + nums[0],
     ]
 
     for i in range(3, n):
-        best =  nums[i] + max(best_steal[:2])
+        best = nums[i] + max(best_steal[:2])
         best_steal = best_steal[-2:] + [best]
 
     return max(best_steal[-2:])

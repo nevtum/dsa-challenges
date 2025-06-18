@@ -1,14 +1,15 @@
-from typing import List
 import math
+from typing import List
+
 
 def min_eating_speed_brute_force(piles: List[int], h: int) -> int:
     # O(n)
     min_speed = 1
-    max_speed = max(piles)+ 1
+    max_speed = max(piles) + 1
 
     # O(n)
     for speed in range(min_speed, max_speed):
-        total_hours = sum((math.ceil(pile/speed) for pile in piles))
+        total_hours = sum((math.ceil(pile / speed) for pile in piles))
 
         print(f"speed={speed}, total_hours={total_hours}, h={h}")
         if total_hours <= h:
@@ -19,7 +20,7 @@ def min_eating_speed_brute_force(piles: List[int], h: int) -> int:
 
 def min_eating_speed_binary_search(piles: List[int], h: int) -> int:
     def in_time(rate):
-        total_hours = sum((math.ceil(pile/rate) for pile in piles))
+        total_hours = sum((math.ceil(pile / rate) for pile in piles))
 
         # both before or on time is sufficient
         return total_hours <= h

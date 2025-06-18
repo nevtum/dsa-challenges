@@ -1,5 +1,6 @@
 from typing import List
 
+
 def find_peak_elem(nums: List[int]) -> int:
     print(f"nums={nums}")
     n = len(nums)
@@ -7,25 +8,25 @@ def find_peak_elem(nums: List[int]) -> int:
     if n <= 1:
         return 0
 
-    l, r = 0, n
+    left, right = 0, n
 
-    while l != r:
-        mid = (r + l) // 2
+    while left != right:
+        mid = (right + left) // 2
         peak = nums[mid]
-        print(f"peak={peak}, mid={mid}, left={l}, right={r}")
+        print(f"peak={peak}, mid={mid}, left={left}, right={right}")
 
-        if mid-1 >= 0 and nums[mid-1] > peak:
+        if mid - 1 >= 0 and nums[mid - 1] > peak:
             print("bim")
-            peak = nums[mid-1]
-            r = mid-1
-        elif mid+1 <= n-1 and nums[mid+1] > peak:
+            peak = nums[mid - 1]
+            right = mid - 1
+        elif mid + 1 <= n - 1 and nums[mid + 1] > peak:
             print("bam")
-            peak =nums[mid+1]
-            l = mid+1
+            peak = nums[mid + 1]
+            left = mid + 1
         else:
             print("bom")
             return mid
 
     print("exited")
-    assert l == r
-    return l
+    assert left == right
+    return left

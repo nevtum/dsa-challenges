@@ -1,1 +1,6 @@
 pytest
+ruff
+isort
+black
+flake8
+mypy

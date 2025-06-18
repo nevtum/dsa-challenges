@@ -1,4 +1,5 @@
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
+
 
 def max_profit(prices: List[int], fee: int) -> int:
     n = len(prices)

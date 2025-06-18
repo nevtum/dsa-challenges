@@ -7,7 +7,7 @@ def tribonacci(n: int) -> int:
     if n <= 2:
         return cache[n]
 
-    for i in range(3, n+1):
+    for i in range(3, n + 1):
         res = sum(cache)
         cache.popleft()
         cache.append(res)
