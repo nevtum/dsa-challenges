@@ -1,5 +1,7 @@
 # LeetCode Problem Solutions
 
+Follow [my progress](https://leetcode.com/u/leet-nevskee/) on LeetCode
+
 ## Project Setup and Development
 
 ### Prerequisites
