@@ -32,7 +32,7 @@ def dfs_search(word: str, index: int, node: Node) -> bool:
     assert index <= len(word)
 
     if index == len(word):
-        return True
+        return node.end_word
 
     ch = word[index]
 
@@ -40,6 +40,10 @@ def dfs_search(word: str, index: int, node: Node) -> bool:
 
     # in the case of wildcard
     if ch == '.':
+        # Special case for single '.' - check if any word exists
+        if len(word) == 1:
+            return any(node.children.values())
+
         # find at least one match where a sub search on child matches the character after '.'
         return any(dfs_search(word, index+1, child_node) for child_node in node.children.values())
     else:
