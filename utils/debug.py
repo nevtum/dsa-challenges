@@ -3,8 +3,9 @@ from pprint import pp
 
 
 class CallTracker:
-    def __init__(self):
+    def __init__(self, use_breakpoint=False):
         self.call_stack = []
+        self.use_breakpoint = use_breakpoint
 
     def track(self, func):
         @wraps(func)
@@ -20,6 +21,8 @@ class CallTracker:
                 )
                 result = func(*args, **kwargs)
                 pp(dict(stack=self.call_stack, result=result))
+                if self.use_breakpoint:
+                    breakpoint()
 
                 return result
             finally:
