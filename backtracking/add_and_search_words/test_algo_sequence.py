@@ -21,7 +21,7 @@ def test_word_dictionary_sequence():
         ("search", "a.d.", False),
         ("search", "b.", False),
         ("search", "a.d", True),
-        ("search", ".", False)
+        ("search", ".", False),
     ]
 
     # Perform operations and check results
@@ -30,6 +30,7 @@ def test_word_dictionary_sequence():
             wd.addWord(arg)
         elif op == "search":
             assert wd.search(arg) == expected, f"Failed on search({arg})"
+
 
 if __name__ == "__main__":
     pytest.main([__file__, "-sv"])

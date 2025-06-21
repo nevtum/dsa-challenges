@@ -2,6 +2,7 @@ from utils.debug import CallTracker
 
 tracker = CallTracker()
 
+
 class Node:
     def __init__(self):
         self.children = {}
@@ -9,6 +10,7 @@ class Node:
 
     def __repr__(self):
         return f"Node(children={set(self.children.keys())})"
+
 
 class WordDictionary:
     def __init__(self):
@@ -27,6 +29,7 @@ class WordDictionary:
     def search(self, word: str) -> bool:
         return dfs_search(word, 0, self.root)
 
+
 @tracker.track
 def dfs_search(word: str, index: int, node: Node) -> bool:
     assert index <= len(word)
@@ -39,14 +42,17 @@ def dfs_search(word: str, index: int, node: Node) -> bool:
     print(f"looking for {ch} in {node}")
 
     # in the case of wildcard
-    if ch == '.':
+    if ch == ".":
         # Special case for single '.' - check if any word exists
         if len(word) == 1:
             return any(node.children.values())
 
         # find at least one match where a sub search on child matches the character after '.'
-        return any(dfs_search(word, index+1, child_node) for child_node in node.children.values())
+        return any(
+            dfs_search(word, index + 1, child_node)
+            for child_node in node.children.values()
+        )
     else:
         if ch not in node.children:
             return False
-        return dfs_search(word, index+1, node.children[ch])
+        return dfs_search(word, index + 1, node.children[ch])
