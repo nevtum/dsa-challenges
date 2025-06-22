@@ -8,6 +8,7 @@ def min_cost_connect_points(points: List[List[int]]) -> int:
     min_cost = 0
     min_heap = [(0, 0)] # start with first point
 
+    # O(n)
     while min_heap:
         # always picks the minimum distance
         dist, i = heapq.heappop(min_heap)
@@ -20,10 +21,12 @@ def min_cost_connect_points(points: List[List[int]]) -> int:
         print(f"Visited point {i}")
 
         xi, yi = points[i]
+        # O(n) * O(n) ~ O(n^2)
         for j in range(i+1, n):
             xj, yj = points[j]
             distance = abs(xi - xj) + abs(yi - yj)
             print(f"Distance from point {i} to point {j}: {distance}")
+            # O(n^2) * O(log n) ~ O(n^2 log n)
             heapq.heappush(min_heap, (distance, j))
 
     return min_cost
