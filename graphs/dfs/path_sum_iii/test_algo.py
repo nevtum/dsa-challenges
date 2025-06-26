@@ -4,6 +4,7 @@ from .algo import TreeNode, path_sum
 
 @pytest.mark.parametrize("root, target_sum, expected", [
     ([5,2,None,1], 8, 1),
+    ([8,-2,None,2], 8, 2),
     ([10,5,-3,3,2,None,11,3,-2,None,1], 8, 3),
     ([5,4,8,11,None,13,4,7,2,None,None,5,1], 22, 3),
 ])

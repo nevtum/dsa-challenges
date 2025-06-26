@@ -15,22 +15,22 @@ class TreeNode:
 
 def path_sum(root: Optional[TreeNode], target_sum: int) -> int:
     # @tracker.track
-    def dfs(node: Optional[TreeNode], residual: int) -> int:
+    def dfs(node: Optional[TreeNode], total: int) -> int:
         if not node:
             return 0
 
-        total_paths = 0
-        remaining = residual - node.val
+        count = 0
+        sum_path = total + node.val
         # dfs path sum equals the target sum
-        if remaining == 0:
-            total_paths += 1
-        else:
-            # sum all paths that are continue to reduce residual down to zero
-            total_paths += dfs(node.left, remaining) + dfs(node.right, remaining)
+        if sum_path == target_sum:
+            count += 1
 
-        # and include all paths where nodes left or right starts with residual == target_sum
-        total_paths += dfs(node.left, target_sum) + dfs(node.right, target_sum)
+        # and count all paths that continue their path sum to equal target_sum
+        count += dfs(node.left, sum_path) + dfs(node.right, sum_path)
 
-        return total_paths
+        # and count all paths where nodes left or right starts with total = 0
+        count += dfs(node.left, 0) + dfs(node.right, 0)
 
-    return dfs(root, target_sum)
+        return count
+
+    return dfs(root, 0)
