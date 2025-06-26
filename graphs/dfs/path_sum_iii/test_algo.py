@@ -7,6 +7,7 @@ from .algo import TreeNode, path_sum
     ([8,-2,None,2], 8, 2),
     ([10,5,-3,3,2,None,11,3,-2,None,1], 8, 3),
     ([5,4,8,11,None,13,4,7,2,None,None,5,1], 22, 3),
+    ([1,None,2,None,3,None,4,None,5], 3, 2),
 ])
 def test_path_sum(root, target_sum, expected):
     tree = build_tree(root)
