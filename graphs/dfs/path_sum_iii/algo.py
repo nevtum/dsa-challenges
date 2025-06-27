@@ -47,6 +47,7 @@ def path_sum(root: Optional[TreeNode], target_sum: int) -> int:
     return dfs(root, 0)
 
 
+# TODO: optimise algorithm
 def path_sum_optimised(root: Optional[TreeNode], target_sum: int) -> int:
     lookup = defaultdict(int)
     lookup[target_sum] = 1
