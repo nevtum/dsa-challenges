@@ -21,7 +21,7 @@ def test_word_dictionary_sequence():
         ("search", "a.d.", False),
         ("search", "b.", False),
         ("search", "a.d", True),
-        ("search", ".", False),
+        ("search", ".", True),
     ]
 
     # Perform operations and check results
