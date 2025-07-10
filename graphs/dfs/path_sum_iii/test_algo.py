@@ -17,17 +17,17 @@ def test_path_sum(array, target_sum, expected):
 def build_tree(root: List[Optional[int]]) -> Optional[TreeNode]:
     if not root:
         return None
-    root_node = TreeNode(root[0])
+    root_node = TreeNode(root[0]) # type: ignore
     queue = [root_node]
     i = 1
     while queue and i < len(root):
         node = queue.pop(0)
         if root[i] is not None:
-            node.left = TreeNode(root[i])
+            node.left = TreeNode(root[i]) # type: ignore
             queue.append(node.left)
         i += 1
         if i < len(root) and root[i] is not None:
-            node.right = TreeNode(root[i])
+            node.right = TreeNode(root[i]) # type: ignore
             queue.append(node.right)
         i += 1
     return root_node
