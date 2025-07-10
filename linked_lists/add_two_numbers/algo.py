@@ -1,5 +1,4 @@
 from typing import Optional
-from operator import ne
 
 
 class ListNode:
@@ -32,22 +31,20 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     c1, c2, c3 = l1, l2, res
 
     while c1 or c2:
-        summ = 0
         if c1:
-            summ += c1.val
+            c3.val += c1.val
             c1 = c1.next
         if c2:
-            summ += c2.val
+            c3.val += c2.val
             c2 = c2.next
 
-        if summ >= 10:
-            c3.val = max(0, summ - 10)
-            c3.next = ListNode()
-        else:
-            c3.val = summ
+        if c3.val >= 10:
+            c3.val = c3.val - 10
+            c3.next = ListNode(1) # carry 1
 
         if c1 or c2:
-            c3.next = ListNode()
+            if not c3.next:
+                c3.next = ListNode()
             c3 = c3.next
 
     return res
