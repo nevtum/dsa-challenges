@@ -15,7 +15,7 @@ FLAKE8 := $(PYTHON) -m flake8
 MYPY := $(PYTHON) -m mypy
 
 # Directories to lint
-LINT_DIRS := backtracking binary_search dynamic_programming stack utils graphs heap linked_lists
+LINT_DIRS := $(shell find . -type d -not -path '*/\.*' | grep -v '^\./\.')
 
 lint: ## Run all linters
 	@echo "${YELLOW}Running flake8 linter...${NC}"
