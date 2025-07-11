@@ -8,7 +8,7 @@ from .algo import longest_substring
     ("au", 2),
     ("abcabcbb", 3),
     ("bbbbbb", 1),
-    ("xyzaxbcdeoafpzbx", 10),
+    ("xyzaxbcdeoafpzoz", 10),
 ])
 def test_longest_substring(s, expected):
     assert longest_substring(s) == expected
