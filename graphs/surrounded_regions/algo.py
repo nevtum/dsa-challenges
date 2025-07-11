@@ -8,7 +8,7 @@ def solve(board: List[List[str]]):
     q = deque()
 
     def edge(i: int, j: int) -> bool:
-        return i in (0, n-1) or j in (0, m-1)
+        return i in (0, n - 1) or j in (0, m - 1)
 
     def valid(i: int, j: int) -> bool:
         return (0 <= i < n) and (0 <= j < m)

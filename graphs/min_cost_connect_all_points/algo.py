@@ -1,12 +1,13 @@
 from typing import List
 import heapq
 
+
 def min_cost_connect_points(points: List[List[int]]) -> int:
     n = len(points)
     visited = set()
 
     min_cost = 0
-    min_heap = [(0, 0)] # start with first point
+    min_heap = [(0, 0)]  # start with first point
 
     # O(n)
     while len(visited) < n:

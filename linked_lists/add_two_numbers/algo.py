@@ -25,7 +25,10 @@ class ListNode:
             current = current.next
         return head
 
-def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+
+def add_two_numbers(
+    l1: Optional[ListNode], l2: Optional[ListNode]
+) -> Optional[ListNode]:
     res = ListNode()
 
     c1, c2, c3 = l1, l2, res
@@ -40,7 +43,7 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
 
         if c3.val >= 10:
             c3.val = c3.val - 10
-            c3.next = ListNode(1) # carry 1
+            c3.next = ListNode(1)  # carry 1
 
         if c1 or c2:
             if not c3.next:

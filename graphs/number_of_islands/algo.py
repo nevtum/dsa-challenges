@@ -3,6 +3,7 @@ from utils.debug import CallTracker
 
 tracker = CallTracker()
 
+
 def number_of_islands(grid: List[List[str]]) -> int:
     if not grid or not grid[0]:
         return 0
@@ -20,7 +21,7 @@ def number_of_islands(grid: List[List[str]]) -> int:
             return
         if (i, j) in visited:
             return
-        if grid[i][j] == '0':
+        if grid[i][j] == "0":
             return
 
         # At this point we are on new land
@@ -33,7 +34,7 @@ def number_of_islands(grid: List[List[str]]) -> int:
     # Iterate through each cell in the grid
     for i in range(rows):
         for j in range(cols):
-            if grid[i][j] == '1' and (i, j) not in visited:
+            if grid[i][j] == "1" and (i, j) not in visited:
                 print(f"Starting DFS from ({i}, {j})")
                 # count every land not visited
                 islands += 1
