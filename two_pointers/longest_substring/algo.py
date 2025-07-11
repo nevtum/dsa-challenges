@@ -11,13 +11,17 @@ def longest_substring(s: str) -> int:
 
     while low < n:
         assert low <= high, f"{low} <= {high}"
-        # TODO: try instead comparing len(char_tally.keys()) with sum(char_tally.values())
-        while (high < n) and (high - low == count):
-            char_tally[s[high]] += 1
+        while (high < n) and len(char_tally.keys()) == sum(char_tally.values()):
             count = max(count, sum(char_tally.values()))
+            char_tally[s[high]] += 1
             high += 1
 
+        if len(char_tally.keys()) == sum(char_tally.values()):
+            count = max(count, sum(char_tally.values()))
+
         char_tally[s[low]] -= 1
+        if char_tally[s[low]] == 0:
+            del char_tally[s[low]]
         low += 1
 
     return count
