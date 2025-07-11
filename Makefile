@@ -15,38 +15,28 @@ FLAKE8 := $(PYTHON) -m flake8
 MYPY := $(PYTHON) -m mypy
 
 # Directories to lint
-LINT_DIRS := backtracking binary_search dynamic_programming stack utils
-
-# Specific files to ignore line length warnings
-IGNORE_LINE_LENGTH := \
-	backtracking/combination_sum_iii/algo.py \
-	binary_search/koko_eating_bananas/v1.py \
-	dynamic_programming/buy_and_sell_stock_with_fee/algo.py \
-	dynamic_programming/longest_common_subsequence/test_algo.py \
-	dynamic_programming/min_cost_climbing_stairs/algo.py \
-	stack/basic_calculator/algo2.py
+LINT_DIRS := backtracking binary_search dynamic_programming stack utils graphs heap linked_lists
 
 lint: ## Run all linters
 	@echo "${YELLOW}Running flake8 linter...${NC}"
 	@$(FLAKE8) \
 		--ignore=E501 \
-		$(foreach file,$(IGNORE_LINE_LENGTH),--per-file-ignores="$(file):E501") \
-		$(LINT_DIRS)
+		$(foreach dir,$(LINT_DIRS),$(wildcard $(dir)/**/*.py))
 	@echo "${GREEN}Flake8 linting complete.${NC}"
 
 format: ## Run code formatters
 	@echo "${YELLOW}Formatting code with Black...${NC}"
-	@$(BLACK) $(LINT_DIRS)
+	@$(BLACK) $(foreach dir,$(LINT_DIRS),$(wildcard $(dir)/**/*.py))
 	@echo "${GREEN}Code formatting complete.${NC}"
 
 sort: ## Sort imports
 	@echo "${YELLOW}Sorting imports with isort...${NC}"
-	@$(ISORT) $(LINT_DIRS)
+	@$(ISORT) $(foreach dir,$(LINT_DIRS),$(wildcard $(dir)/**/*.py))
 	@echo "${GREEN}Import sorting complete.${NC}"
 
 type-check: ## Run type checking
 	@echo "${YELLOW}Running type checking...${NC}"
-	@$(MYPY) $(LINT_DIRS) || true
+	@$(MYPY) $(foreach dir,$(LINT_DIRS),$(wildcard $(dir)/**/*.py)) || true
 	@echo "${GREEN}Type checking complete.${NC}"
 
 clean: ## Remove cache and temporary files
@@ -63,7 +53,7 @@ all: clean lint type-check ## Run all checks and cleaning
 
 help: ## Show this help message
 	@echo "Available targets:"
-	@echo "  lint       : Run flake8 linter (with specific file exclusions)"
+	@echo "  lint       : Run flake8 linter"
 	@echo "  format     : Format code with Black"
 	@echo "  sort       : Sort imports with isort"
 	@echo "  type-check : Run mypy type checking"
