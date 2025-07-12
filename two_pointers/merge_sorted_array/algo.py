@@ -4,7 +4,7 @@ from typing import List
 def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
     assert len(nums1) == m + n
 
-    mm, nn = m-1, n-1
+    mm, nn = m - 1, n - 1
     last = m + n - 1
     while mm >= 0 and nn >= 0:
         if nums1[mm] >= nums2[nn]:
