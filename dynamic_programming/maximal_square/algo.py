@@ -13,9 +13,9 @@ def maximal_square(matrix: List[List[str]]) -> int:
             return dp[i][j]
 
         dirs = (
-            (i + 1, j), # down
-            (i, j + 1), # right
-            (i + 1, j + 1), # diagonal
+            (i + 1, j),  # down
+            (i, j + 1),  # right
+            (i + 1, j + 1),  # diagonal
         )
 
         # calc size from every direction then
