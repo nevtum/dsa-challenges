@@ -6,21 +6,17 @@ def maximal_square(matrix: List[List[str]]) -> int:
     dp = [[0] * m for _ in range(n)]
 
     def dfs(i: int, j: int) -> int:
-        if matrix[i][j] == "0":
+        if i >= n or j >= m or matrix[i][j] == "0":
             return 0
 
         if dp[i][j] > 0:
             return dp[i][j]
 
         edges = (
-            (i + 1, j),
-            (i, j + 1),
-            (i + 1, j + 1),
+            (i + 1, j), # down
+            (i, j + 1), # right
+            (i + 1, j + 1), # diagonal
         )
-        for ii, jj in edges:
-            if ii >= n or jj >= m:
-                return 1
-
         neighs = [dfs(ii, jj) for ii, jj in edges]
         if 0 in neighs:
             dp[i][j] = 1
