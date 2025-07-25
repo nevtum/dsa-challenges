@@ -8,7 +8,7 @@ from .algo import combination_sum_iv
         ([1, 2, 3], 4, 7),
         ([9], 3, 0),
         ([3], 9, 1),
-        # ([7, 13], 300, 3828068480),
+        ([7, 13], 300, 185378178),
     ],
 )
 def test_combination_sum_iv(nums, target, expected):
