@@ -1,34 +1,26 @@
 from typing import List
 
-
-# Not much of a dp algorithm, but more of a greedy one
-# since we can decrement the number of steps from the largest
-# number at either the offset or at the current position
+# can be treated as a greedy solution since there
+# is no backtracking required to calculate the largest jump
+# from each position in the array
 #
-# ie
-#  2  1  0
-#     3  2  1  0  select 3 because 3 >= 1
-#        1  0     continue from 3 since 2 >= 1
-#           1  0  continue from 3 since 1 >= 1
+# ex
 # [2, 3, 1, 1, 4]
+# [2]              range = [0]
+#    [3, 1]        range = [1, 2]
+#          [1, 4]  range = [3, 4]
 def jump(nums: List[int]) -> int:
-    n = len(nums)
-    if n == 1:
-        return 0
+    jumps = 0
+    left = right = 0
 
-    jumps = 1
-    # pos = nums[0] if nums[0] else 0
-    steps = nums[0]
+    while right < len(nums) - 1:
+        max_position = 0
+        for i in range(left, right + 1):
+            # calculate relative position from the max nums[i]
+            max_position = max(max_position, i + nums[i])
 
-    for i in range(n-1):
-        print(f"steps={steps} jumps={jumps}")
-        steps -= 1
-
-        if steps < 0:
-            return 0
-
-        if steps < nums[i+1]:
-            steps = nums[i+1]
-            jumps += 1
+        left = right + 1
+        right = max_position
+        jumps += 1
 
     return jumps
