@@ -1,7 +1,7 @@
 from typing import List
 
 
-def productExceptSelf(nums: List[int]) -> List[int]:
+def product_except_self(nums: List[int]) -> List[int]:
     n = len(nums)
     prefix_product = [0 for _ in range(n)]
     suffix_product = [0 for _ in range(n)]

@@ -1,5 +1,5 @@
 import pytest
-from .algo import productExceptSelf
+from .algo import product_except_self
 
 
 @pytest.mark.parametrize(
@@ -11,7 +11,7 @@ from .algo import productExceptSelf
     ],
 )
 def test_product_except_self(nums, expected):
-    assert productExceptSelf(nums) == expected
+    assert product_except_self(nums) == expected
 
 
 if __name__ == "__main__":
