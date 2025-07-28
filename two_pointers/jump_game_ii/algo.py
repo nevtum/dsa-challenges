@@ -1,5 +1,6 @@
 from typing import List
 
+
 # can be treated as a greedy solution since there
 # is no backtracking required to calculate the largest jump
 # from each position in the array
