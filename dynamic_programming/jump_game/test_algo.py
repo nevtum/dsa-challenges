@@ -3,7 +3,7 @@ from .algo import can_jump
 
 
 @pytest.mark.parametrize(
-    "prices, expected",
+    "nums, expected",
     [
         ([0], True),
         ([1, 2], True),
@@ -15,8 +15,8 @@ from .algo import can_jump
         ([0, 2, 3], False),
     ],
 )
-def test_can_jump(prices, expected):
-    assert can_jump(prices) == expected
+def test_can_jump(nums, expected):
+    assert can_jump(nums) == expected
 
 
 if __name__ == "__main__":
