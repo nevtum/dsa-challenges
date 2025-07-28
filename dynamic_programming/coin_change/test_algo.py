@@ -5,9 +5,13 @@ from .algo import coin_change
 @pytest.mark.parametrize(
     "coins, amount, expected",
     [
-        ([], 0, 1),
-        ([1], 0, 1),
+        ([], 0, 0),
+        ([1], 0, 0),
+        ([1], 1, 1),
+        ([2, 5, 10], 1, -1),
         ([1, 3, 4], 6, 2),
+        ([5], 10, 2),
+        ([2, 5, 10, 20, 50], 100, 2),
     ],
 )
 def test_coin_change(coins, amount, expected):
