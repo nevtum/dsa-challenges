@@ -16,7 +16,7 @@ class CallTracker:
                         "fn": func.__name__,
                         "args": args,
                         # "kwargs": kwargs,
-                        "depth": len(self.call_stack),
+                        "depth": len(self.call_stack) + 1,
                     }
                 )
                 result = func(*args, **kwargs)
