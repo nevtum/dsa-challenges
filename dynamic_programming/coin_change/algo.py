@@ -1,6 +1,7 @@
 from typing import List
 from functools import cache
 
+
 def coin_change(coins: List[int], amount: int) -> int:
     @cache
     def dp(target: int) -> int:
@@ -9,9 +10,9 @@ def coin_change(coins: List[int], amount: int) -> int:
 
         if target < 0:
             # overshot the target
-            return float('inf')
+            return float("inf")
 
-        best = float('inf')
+        best = float("inf")
         for coin in coins:
             new_target = target - coin
             # one extra coin plus the best min number
@@ -21,6 +22,6 @@ def coin_change(coins: List[int], amount: int) -> int:
         return best
 
     result = dp(amount)
-    if result < float('inf'):
+    if result < float("inf"):
         return result
     return -1
