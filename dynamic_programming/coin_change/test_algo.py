@@ -1,4 +1,5 @@
 import pytest
+
 from .algo import coin_change
 
 

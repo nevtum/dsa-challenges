@@ -1,4 +1,5 @@
 import pytest
+
 from .algo import product_except_self
 
 

@@ -1,5 +1,6 @@
 import pytest
-from .algo import add_two_numbers, ListNode
+
+from .algo import ListNode, add_two_numbers
 
 
 def test_serialize_list_node():

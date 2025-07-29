@@ -1,4 +1,5 @@
 import pytest
+
 from .algo import number_of_islands
 
 

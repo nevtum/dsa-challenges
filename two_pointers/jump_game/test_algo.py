@@ -1,4 +1,5 @@
 import pytest
+
 from .algo import can_jump
 
 

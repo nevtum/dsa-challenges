@@ -1,4 +1,5 @@
 import pytest
+
 from .algo import min_cost_connect_points
 
 

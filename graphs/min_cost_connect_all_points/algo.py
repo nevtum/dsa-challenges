@@ -1,5 +1,5 @@
-from typing import List
 import heapq
+from typing import List
 
 
 def min_cost_connect_points(points: List[List[int]]) -> int:

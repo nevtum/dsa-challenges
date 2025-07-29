@@ -1,4 +1,5 @@
 import pytest
+
 from .algo import total_cost
 
 

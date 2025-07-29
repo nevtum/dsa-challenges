@@ -1,4 +1,5 @@
 import pytest
+
 from .algo import max_profit
 
 

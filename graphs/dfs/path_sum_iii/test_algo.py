@@ -1,5 +1,7 @@
+from typing import List, Optional
+
 import pytest
-from typing import Optional, List
+
 from .algo import TreeNode, path_sum, path_sum_optimised
 
 

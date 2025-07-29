@@ -1,5 +1,5 @@
-from typing import List
 import heapq
+from typing import List
 
 
 def total_cost(costs: List[int], k: int, candidates: int) -> int:
