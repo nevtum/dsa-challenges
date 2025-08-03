@@ -1,6 +1,6 @@
 import pytest
 
-from .algo import coin_change
+from .algo import coin_change_memoization, coin_change_tabulation
 
 
 @pytest.mark.parametrize(
@@ -16,7 +16,8 @@ from .algo import coin_change
     ],
 )
 def test_coin_change(coins, amount, expected):
-    assert coin_change(coins, amount) == expected
+    assert coin_change_memoization(coins, amount) == expected
+    assert coin_change_tabulation(coins, amount) == expected
 
 
 if __name__ == "__main__":
