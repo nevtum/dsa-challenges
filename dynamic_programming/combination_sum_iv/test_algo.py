@@ -1,6 +1,6 @@
 import pytest
 
-from .algo import combination_sum_iv
+from .algo import combination_sum_iv_memoization, combination_sum_iv_tabulation
 
 
 @pytest.mark.parametrize(
@@ -13,7 +13,8 @@ from .algo import combination_sum_iv
     ],
 )
 def test_combination_sum_iv(nums, target, expected):
-    assert combination_sum_iv(nums, target) == expected
+    assert combination_sum_iv_memoization(nums, target) == expected
+    assert combination_sum_iv_tabulation(nums, target) == expected
 
 
 if __name__ == "__main__":
