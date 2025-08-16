@@ -7,6 +7,7 @@ from .algo import word_break
     [
         ("", ["doesn't", "matter"], True),
         ("a", ["b"], False),
+        ("ccbb", ["bc", "cb"], False),
         ("applepenapple", ["apple", "pen"], True),
         ("catsandog", ["cats", "dog", "sand", "and", "cat"], False),
     ],
